@@ -100,11 +100,13 @@ more.addEventListener('click', () => {
             ${data[2][i]}
         </div>
         `;
+
         videosWrapper.appendChild(card);
         setTimeout(() => {
             card.classList.remove('videos__item-active');
         }, 10);
         bindNewModal(card);
+       
     }
     if (night === true) {
         document.querySelectorAll('.hamburger > line').forEach(item => {
@@ -165,7 +167,8 @@ bindModal(videos);
 function bindNewModal(cards) {
     cards.addEventListener('click', (e) => {
         e.preventDefault(); 
-        const id = c.getAttribute('data-url');
+        const id = cards.getAttribute('data-url');
+        loadVideo(id);
         openModal();
      });
 }
